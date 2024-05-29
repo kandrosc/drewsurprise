@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z4(+nzy&o_qo)86e7f2c#vutxc(!bfytdlvty4#6z0sg^1!^k@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'drewsurprise\\templates'
+            'drewsurprise/drewsurprise/templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Canada/Mountain'
 
 USE_I18N = True
 
