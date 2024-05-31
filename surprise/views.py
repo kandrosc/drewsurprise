@@ -1,27 +1,34 @@
+
 from django.shortcuts import render
+from surprise.models import Message, Image
 from datetime import datetime
+
+
+
+# Renders the html
+# request: passed from view
+# d: datetime object
+# n: number of day, as a string
+def renderHTML(request, d, n):
+    context = {}
+    if datetime.now() < d:
+        context = {'time': d.strftime("%I:%M%p on %B %d")}
+        return render(request, "error.html", context)
+    context = {
+        'message': Message.objects.get(day=n).content,
+        'images': '</br>'.join(['<img src=%s>' % img.upload.url for img in Image.objects.filter(day=n)])
+    }
+    return render(request, "index.html", context)
 
 # Create your views here.
 def firstday(request):
-    context = {}
-    d = datetime(2024,6,2,11,0)
-    if datetime.now() < d:
-        context = {'time': d.strftime("%m/%d/%Y, %I:%M%p")}
-        return render(request, "error.html", context)
-    return render(request, "firstday.html", context)
+    return renderHTML(request, datetime(2024,5,2,11,0), "1")
 
 def secondday(request):
-    context = {}
-    d = datetime(2024,6,9,11,0)
-    if datetime.now() < d:
-        context = {'time': d.strftime("%m/%d/%Y, %I:%M%p")}
-        return render(request, "error.html", context)
-    return render(request, "secondday.html", context)
+    return renderHTML(request, datetime(2024,5,6,11,0), "2")
 
 def thirdday(request):
-    context = {}
-    d = datetime(2024,6,16,11,0)
-    if datetime.now() < d:
-        context = {'time': d.strftime("%m/%d/%Y, %I:%M%p")}
-        return render(request, "error.html", context)
-    return render(request, "thirdday.html", context)
+    return renderHTML(request, datetime(2024,5,10,11,0), "3")
+
+def fourthday(request):
+    return renderHTML(request, datetime(2024,5,14,11,0), "4")

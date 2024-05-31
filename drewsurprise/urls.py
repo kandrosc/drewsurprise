@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from surprise.views import firstday, secondday, thirdday
+from django.conf import settings
+from django.conf.urls.static import static
+from surprise.views import firstday, secondday, thirdday, fourthday
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('I/', firstday, name="firstday"), # June 2nd
-    path('appreciate/', secondday, name="secondday"), # June 9th
-    path('you/', thirdday, name="thirdday") # June 16th
-]
+    path('appreciate/', secondday, name="secondday"), # June 6th
+    path('you/', thirdday, name="thirdday"), # June 10th
+    path('Drew/', fourthday, name="fourthday") # June 14th
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
