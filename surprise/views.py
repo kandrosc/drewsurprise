@@ -24,13 +24,13 @@ def renderHTML(request, date, num, background):
 
 # Create your views here.
 def firstday(request):
-    return renderHTML(request, datetime(2024,5,2,11,0), "1", '/media/backgrounds/one.gif')
+    return renderHTML(request, datetime(2024,6,2,12,0), "1", '/media/backgrounds/one.gif')
 
 def secondday(request):
-    return renderHTML(request, datetime(2024,5,6,11,0), "2", '/media/backgrounds/one.gif')
+    return renderHTML(request, datetime(2024,6,6,9,0), "2", '/media/backgrounds/two.gif')
 
 def thirdday(request):
-    return renderHTML(request, datetime(2024,5,10,11,0), "3", '/media/backgrounds/one.gif')
+    return renderHTML(request, datetime(2024,6,10,9,0), "3", '/media/backgrounds/three.gif')
 
 def fourthday(request):
-    return renderHTML(request, datetime(2024,5,14,11,0), "4", '/media/backgrounds/one.gif')
+    return renderHTML(request, datetime(2024,6,14,9,0), "4", '/media/backgrounds/four.gif')
